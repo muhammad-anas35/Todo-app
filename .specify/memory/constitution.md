@@ -1,55 +1,55 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Todo Console App Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. In-Memory First
+All task data is stored in memory during runtime. No file or database persistence - data is ephemeral and lost on exit. This keeps the app simple and focused on core CRUD operations.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Clean CLI Interface
+The application exposes functionality via an interactive command-line interface. Users interact through numbered menus and prompts. All output is human-readable with clear status indicators (✓/○).
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Type Safety
+Use Python type hints throughout the codebase. All function parameters and return types must be explicitly typed. This improves code readability and enables static analysis.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Single Responsibility
+Each module has one clear purpose:
+- `models/` - Data structures (Task entity)
+- `services/` - Business logic (TaskManager)
+- `cli/` - User interface (menu, prompts)
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Test-First Development
+TDD is mandatory: Write tests first → Verify they fail → Implement → Verify they pass → Refactor. Red-Green-Refactor cycle strictly enforced.
 
-### [PRINCIPLE_6_NAME]
+### VI. Simplicity Over Features
+Start simple, follow YAGNI (You Aren't Gonna Need It). No over-engineering. Only implement what's explicitly required in the specification.
 
+## Technology Stack
 
-[PRINCIPLE__DESCRIPTION]
+- **Language**: Python 3.13+
+- **Package Manager**: UV
+- **Testing**: pytest
+- **Linting**: ruff
+- **Type Checking**: mypy (optional)
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Project Structure
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+```
+project_2/
+├── .specify/           # Spec-Kit Plus configuration
+├── specs/              # Feature specifications
+├── history/            # Prompt History Records
+├── src/                # Source code
+│   ├── models/         # Data models
+│   ├── services/       # Business logic
+│   └── cli/            # CLI interface
+├── tests/              # Test files
+├── pyproject.toml      # Project configuration
+├── README.md           # Setup instructions
+└── GEMINI.md           # AI assistant rules
+```
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other practices. Amendments require documentation and approval. All code must verify compliance with these principles.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-08 | **Last Amended**: 2025-12-08
